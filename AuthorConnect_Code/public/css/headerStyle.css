@@ -1,0 +1,55 @@
+#navBar{
+    background: dimgrey;
+    padding: 15px;
+}
+#navBar nav a{
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+label {
+    display: block;
+    margin: 5px 0;
+}
+
+/*Author Action*/
+.authorActDropbtn{
+    position: relative;
+    background-color: aquamarine;
+    color: Black;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border: 1px solid black;
+}
+.author_action{
+    float: right;
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    color: black;
+    display: none;
+    position: relative;
+    background-color: darkgray;
+    z-index: 1;
+}
+.dropdown-content a {
+    color: black;
+    padding: 5px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover {
+    background-color: aquamarine;
+}
+.author_action:hover .dropdown-content{
+    display: block;
+    color: black;
+}
+.author_action:hover .authorActDropbtn {
+    background-color: #4F46E5
+}
+

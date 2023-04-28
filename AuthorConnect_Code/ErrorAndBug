@@ -1,0 +1,100 @@
+--- DATE STILL A PROBLEM IN EVERY PAGE ---
+
+--- WHEN LOGIN AS READER -> WILL NOT SEE A PUBLISH BUTTON---
+
+
+In Register page
+    Line 47 - 50 : Trying to Auto increment AuthorId but does not work at the moment,
+    Reason being: In DB state that only one column can auto increment
+
+In Author Page
+    Add description to DB -> allow author to add their own description.
+
+In Publication Page
+
+    create new book start at around Line 17 until line 25
+    Need to add data to publish first then take the ID of publish to book 'postID' _/
+
+    - Right now I cannot add a book to DB but no postID does not know who post it. _/
+            (Author can add book, Its' contains Author ID and publish ID) _/
+
+
+    -Option is still hard coded need to read from DB
+
+IN Review Page
+Implementing a page that user can review a book
+
+IN createAnnouncement Page
+    postType that passing in DB still hardCode
+
+IN createEvent Page
+    postType that passing in DB still hardCode
+
+IN createSurvey Page
+    postType that passing in DB still hardCode
+
+IN Main page
+    -Display recommended book
+    -News
+    -Events
+
+-Might need to redo the database -> change the connection from author ID to UserID _/
+-Implement the Date variable to get a date in every create page
+-Implement a class to contain a function needed see Chat GPT for answer
+
+If I can get publish ID -> Meaning I can Do the same to Review ID
+If I can get the UserID from DB
+
+******* DB Change information *********
+    -Need to change the relationship from author ID to User ID ( Removed AuthorID) _/
+    -In publish table need to change from Author ID to UserID._/
+    -Add price field into author_Action table in DB
+    -- -----------------------------------------------------
+    --  Whats need to be created when create a database
+        --  RoleID _/
+        --postType _/
+        --Genre_/
+
+WHAT NEED TO DO IN LATER STAGE
+    DISPLAY BOOK_/
+    DISPLAY AUTHOR_/
+    DISPLAY EVENT
+    DISPLAY ANNOUNCEMENT
+    DISPLAY SURVEY
+    SEARCH FOR AUTHOR
+    SEARCH FOR BOOK
+
+    ****** When click on an author or click on a book it need to bring to its own page and display their detail ****
+    Example:
+
+    When click on an Author
+        -> bring to Author page which contains books , Announcement , Event , Surveys
+
+    When click on Book
+        -> bring to Book page contains Book details, Description, And it's need to contains review!(Most important)
+
+
+    CODE SANITIZATION
+    CODE CONSISTENCY ( Example : Require a specific amount of password)
+
+
+Final test
+    Change the Database name and do a proper test
+TESTING PHASES:
+    - Unit testing
+    - Validation Testing
+    - User Interface Testing
+    - Requirement Testing
+    - Equivalence partition and Basis Path test
+
+** Add book genre on a site of web **
+
+
+TODO:
+GET DATE on every page
+Fully implement getter and setter
+AdMin area
+
+NEED TO FIX BOOK (publication page) Line 71 - 91
+ALSO INclude and use Book
+DOES NOT WORK
