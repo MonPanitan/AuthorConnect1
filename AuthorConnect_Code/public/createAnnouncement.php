@@ -34,8 +34,8 @@ if (isset($_POST['submit'])) {
         //GET USER ID and ROLE ID
         if ($statement->rowCount() > 0) {
             foreach ($result as $row) {
-                $curr_UserID = $row["UserID"];
-                $curr_roleID = $row["roleID"];
+                $curr_UserID = escape($row["UserID"]);
+                $curr_roleID = escape($row["roleID"]);
             }
 
 //                echo "The userId of user $authorName is $curr_UserID";
@@ -49,8 +49,8 @@ if (isset($_POST['submit'])) {
 
         //create Variable for each type
         $postTypeID = escape(1);
-        $heading = $_POST["heading"];
-        $description = $_POST["description"];
+        $heading = escape($_POST["heading"]);
+        $description = escape($_POST["description"]);
         $date = date('Y-m-d H:i:s');
 
         //implement to class

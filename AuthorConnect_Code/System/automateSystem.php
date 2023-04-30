@@ -5,6 +5,7 @@ namespace System;
 use src\PDO;
 use src\PDOException;
 
+
 class automateSystem
 {
     public function getUserDetail(string $username, $password)
@@ -91,6 +92,21 @@ class automateSystem
             echo $success;
         } catch (PDOException $error) {
             echo $sql . "<br>" . $error->getMessage();
+        }
+    }
+
+    public function ConnectToDB(): void
+    {
+        try {
+            require_once '../src/DBconnect.php';
+
+            $sql = "SELECT * FROM author_action WHERE postTypeID = 2";
+            $statement = $connection->prepare($sql);
+            $statement->execute();
+
+            $getAllEvent = $statement->fetchAll(); // return an array index column
+        } catch (PDOException $error) {
+            echo $error;
         }
     }
 

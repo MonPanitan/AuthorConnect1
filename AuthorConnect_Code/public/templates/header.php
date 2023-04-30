@@ -49,9 +49,9 @@ if ($_SESSION['Active'] == false) {
                     <?php echo escape($_SESSION['username']); ?>
                 </button>
                 <div class="dropdown-content">
-                    <?php if ($_SESSION['roleID'] == 1) { ?>
+                    <?php if (escape($_SESSION['roleID']) == 1) { ?>
                         <a href="update-single-author.php?UserID=<?php echo escape($_SESSION["UserID"]); ?>">Profile</a>
-                    <?php } elseif ($_SESSION['roleID'] == 2) { ?>
+                    <?php } elseif (escape($_SESSION['roleID']) == 2) { ?>
                         <a href="update-single-reader.php?UserID=<?php echo escape($_SESSION["UserID"]); ?>">Profile</a>
 
                     <?php } ?>

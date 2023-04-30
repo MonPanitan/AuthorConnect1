@@ -171,10 +171,10 @@ if ($book && $statement) {
                 <?php foreach ($reviews as $row) { ?>
                     <div class="card">
                         <div class="book_detail">
-                            <h2>Review ID:<?php echo $row['ReviewID'] ?></h2>
-                            <h4>User ID: <?php echo $row['UserID'] ?></h4>
-                            <h4>Date: <?php echo $row['Date'] ?></h4>
-                            <h4>Comment: <?php echo $row['Comment'] ?></h4>
+                            <h2>Review ID:<?php echo escape($row['ReviewID']) ?></h2>
+                            <h4>User ID: <?php echo escape($row['UserID']) ?></h4>
+                            <h4>Date: <?php echo escape($row['Date']) ?></h4>
+                            <h4>Comment: <?php echo escape($row['Comment']) ?></h4>
                         </div>
                     </div>
                     </a>

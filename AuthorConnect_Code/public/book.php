@@ -27,9 +27,9 @@ if ($books && $statement->rowCount() > 0) { ?>
             <a href="read-single-book.php?ISBN=<?php echo escape($row['ISBN']) ?>"</a>
             <div class=" card">
                 <div class="book_detail">
-                    <h2>Book:<?php echo $row['bookName'] ?></h2>
-                    <h4>Description: <?php echo $row['description'] ?></h4>
-                    <h4>rating: <?php echo $row['rating'] ?></h4>
+                    <h2>Book:<?php echo escape($row['bookName']) ?></h2>
+                    <h4>Description: <?php echo escape($row['description']) ?></h4>
+                    <h4>rating: <?php echo escape($row['rating']) ?></h4>
                 </div>
             </div>
             </a>

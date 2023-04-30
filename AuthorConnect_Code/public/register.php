@@ -6,6 +6,7 @@ require '../common.php';
 //and try to add(post) data into database.
 if (isset($_POST['submit'])) {
     try {
+
         $roleButton = escape($_POST['roleButton']);
 
         //Pass Data to variable
@@ -16,6 +17,11 @@ if (isset($_POST['submit'])) {
         $lastname = escape($_POST['lastname']);
         $email = escape($_POST['email']);
         $phoneNum = escape($_POST['phoneNum']);
+
+        //password validation
+        if (strlen($password) < 8) {
+            $errors[] = "Password must be at least 8 characters";
+        }
 
         //Create object
         $addUser = new User($username, $password, $firstname, $lastname, $email, $phoneNum, $roleID);
@@ -59,8 +65,8 @@ include "templates/loginHeader.php";
     <h2>Register Page:</h2>
     <form method="post">
         <p>please choose your role for register:</p>
-        <input type="radio" name="roleButton" value="1" id="authorButton">Author</input>
-        <input type="radio" name="roleButton" value="2" id="readerButton">Reader</input>
+        <input type="radio" name="roleButton" value="1" id="authorButton" required>Author </input>
+        <input type="radio" name="roleButton" value="2" id="readerButton" required>Reader </input>
 
         <!-- Username -->
         <label for="username">Username:</label>
@@ -68,7 +74,8 @@ include "templates/loginHeader.php";
 
         <!-- Password -->
         <label for="password">Password:</label>
-        <input type="password" name="password" id="password" required>
+        <input type="password" name="password" id="password" minlength="8" required
+               title="Password must contain at least 8 characters"> <!-- Minimum 8 character-->
 
         <!-- First name -->
         <label for="firstname">First Name:</label>
@@ -84,7 +91,7 @@ include "templates/loginHeader.php";
 
         <!-- Phone -->
         <label for="phoneNum">Phone Number:</label>
-        <input type="number" name="phoneNum" id="phoneNum">
+        <input type="tel" name="phoneNum" id="phoneNum" placeholder="08x-xxxxxxx" pattern="[0-9]{3}[0-9]{7}">
 
         <!-- need to add register role -->
         <!-- Method to assign a value of that role

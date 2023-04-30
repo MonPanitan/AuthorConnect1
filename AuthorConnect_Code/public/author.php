@@ -37,7 +37,7 @@ if ($authors && $statement->rowCount() > 0) { ?>
             <div class="card">
                 <h4><img src="image/JkRowling.jpg" alt="Image of JK Rowing" class="author_img"></h4>
                 <div class="author_detail">
-                    <h2><?php echo $row['firstname'] ?> &nbsp <?php echo $row['lastname'] ?></h2>
+                    <h2><?php echo escape($row['firstname']) ?> &nbsp <?php echo escape($row['lastname']) ?></h2>
 
                     <!--                    <h4>Description:--><?php //echo $row['description'] ?><!-- </h4>-->
                     <h4>List of Book</h4>

@@ -8,6 +8,10 @@ include "../Book_Storage/Genre.php";
 if (isset($_POST['submit'])) {
     require_once "../common.php";
     try {
+        //Check for ISBN validation
+        if (!preg_match('/^(978|979)\d{10}$/', ($_POST['isbn']))) {
+            $error[] = "Invalid pattern of isbn";
+        }
         //Connect to the DB
         require_once '../src/DBconnect.php';
 
@@ -40,8 +44,8 @@ if (isset($_POST['submit'])) {
         //GET USER ID and ROLE ID
         if ($statement->rowCount() > 0) {
             foreach ($result as $row) {
-                $curr_UserID = $row["UserID"];
-                $curr_roleID = $row["roleID"];
+                $curr_UserID = escape($row["UserID"]);
+                $curr_roleID = escape($row["roleID"]);
             }
 
 //                echo "The userId of user $authorName is $curr_UserID";
@@ -76,6 +80,7 @@ if (isset($_POST['submit'])) {
         $publishID = escape($curr_publishID);
         $book_desc = escape($_POST['book_Desc']);
 
+
         $addBook = new \Book_storage\Book($book_isbn, $book_name, $book_desc, $genreID, $publishID);
 
 //        $addBook = new ($bookISBN, $bookName, $description, $genreID, $publishID);
@@ -90,7 +95,8 @@ if (isset($_POST['submit'])) {
 //            "image" => escape("NULL"),
         );
 
-
+        //add book to DB
+        $addBook->addBookToDB($new_book);
         //END CREATE NEW BOOK
 //        //----------------------------------------------------------
 //
@@ -128,7 +134,8 @@ include_once "templates/header.php";
 
         <!-- ISBN -->
         <label for="isbn">Book ISBN: (Start with 978 or 979)</label>
-        <input type="number" name="isbn" id="isbn" maxlength="13" pattern="^(97(8|9))?\d{9}(\d|X)$">
+        <input type="number" name="isbn" id="isbn" minlength="13" maxlength="13" pattern="'/^(978|979)\d{10}$/'"
+               title="Must start with 978 or 979, and contain 13 characters">
 
         <!-- Author -->
 

@@ -30,9 +30,9 @@ if ($result && $statement->rowCount() > 0) { ?>
             <a href="read-single-author.php?UserID=<?php echo escape($row['UserID']) ?>"</a>
             <div class=" card">
                 <div class="book_detail">
-                    <h4><?php echo $row['firstname'] ?></h4>
-                    <h4><?php echo $row['lastname'] ?></h4>
-                    <h4>Description: <?php echo $row['description'] ?></h4>
+                    <h4><?php echo escape($row['firstname']) ?></h4>
+                    <h4><?php echo escape($row['lastname']) ?></h4>
+                    <h4><?php echo escape($row['description']) ?></h4>
                 </div>
             </div>
             </a>

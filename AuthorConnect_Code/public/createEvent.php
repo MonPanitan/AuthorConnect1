@@ -35,8 +35,8 @@ if (isset($_POST['submit'])) {
         //GET USER ID and ROLE ID
         if ($statement->rowCount() > 0) {
             foreach ($result as $row) {
-                $curr_UserID = $row["UserID"];
-                $curr_roleID = $row["roleID"];
+                $curr_UserID = escape($row["UserID"]);
+                $curr_roleID = escape($row["roleID"]);
             }
 
 //                echo "The userId of user $authorName is $curr_UserID";

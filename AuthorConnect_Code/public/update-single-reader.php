@@ -69,9 +69,9 @@ if ($readerReviews && $statement->rowCount() > 0) { ?>
         <?php foreach ($readerReviews as $row) { ?>
             <div class="card">
                 <div class="announcement_detail">
-                    <h2>Book ISBN:<?php echo $row['Book_ISBN'] ?></h2>
-                    <h4>Date: <?php echo $row['Date'] ?></h4>
-                    <h4>Comment: <?php echo $row['Comment'] ?></h4>
+                    <h2>Book ISBN:<?php echo escape($row['Book_ISBN']) ?></h2>
+                    <h4>Date: <?php echo escape($row['Date']) ?></h4>
+                    <h4>Comment: <?php echo escape($row['Comment']) ?></h4>
                 </div>
             </div>
             <a href="successfullyDelete.php?UserID=<?php echo($_SESSION['UserID']); ?>&ReviewID=<?php echo escape($row["ReviewID"]); ?>">Delete</a>

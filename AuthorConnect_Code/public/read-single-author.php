@@ -128,10 +128,10 @@ if ($author && $statement) {
             <?php foreach ($authorEvent as $row) { ?>
                 <div class="card">
                     <div class="event_detail">
-                        <h2>Heading:<?php echo $row['Heading'] ?></h2>
-                        <h4>Description: <?php echo $row['description'] ?></h4>
-                        <h4>Date: <?php echo $row['Date'] ?></h4>
-                        <h4>Time: <?php echo $row['Time'] ?></h4>
+                        <h2>Heading:<?php echo escape($row['Heading']) ?></h2>
+                        <h4>Description: <?php echo escape($row['description']) ?></h4>
+                        <h4>Date: <?php echo escape($row['Date']) ?></h4>
+                        <h4>Time: <?php echo escape($row['Time']) ?></h4>
                     </div>
                 </div>
             <?php } ?>
@@ -162,13 +162,13 @@ if ($author && $statement) {
             <?php foreach ($authorSurvey as $row) { ?>
                 <div class="card">
                     <div class="event_detail">
-                        <h2>Heading:<?php echo $row['Heading'] ?></h2>
-                        <h4>Description: <?php echo $row['description'] ?></h4>
-                        <h4>Date: <?php echo $row['Date'] ?></h4>
-                        <h4>Time: <?php echo $row['Time'] ?></h4>
-                        <h4>Answer1: <?php echo $row['Answer1'] ?></h4>
-                        <h4>Answer2: <?php echo $row['Answer2'] ?></h4>
-                        <h4>Answer3: <?php echo $row['Answer3'] ?></h4>
+                        <h2>Heading:<?php echo escape($row['Heading']) ?></h2>
+                        <h4>Description: <?php echo escape($row['description']) ?></h4>
+                        <h4>Date: <?php echo escape($row['Date']) ?></h4>
+                        <h4>Time: <?php echo escape($row['Time']) ?></h4>
+                        <h4>Answer1: <?php echo escape($row['Answer1']) ?></h4>
+                        <h4>Answer2: <?php echo escape($row['Answer2']) ?></h4>
+                        <h4>Answer3: <?php echo escape($row['Answer3']) ?></h4>
                     </div>
                 </div>
             <?php } ?>

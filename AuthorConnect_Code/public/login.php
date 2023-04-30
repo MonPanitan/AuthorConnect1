@@ -38,8 +38,8 @@ if (isset($_POST['submit'])) {
     if ($result && $statement) {
         if ($statement->rowCount() > 0) {
             foreach ($result as $row) {
-                $_SESSION['roleID'] = $row["roleID"];
-                $_SESSION['UserID'] = $row["UserID"];
+                $_SESSION['roleID'] = escape($row["roleID"]);
+                $_SESSION['UserID'] = escape($row["UserID"]);
             }
         }
         echo 'success';
