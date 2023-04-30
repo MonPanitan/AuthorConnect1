@@ -1,4 +1,5 @@
 <?php
+include '../Activities/Review.php';
 
 class User
 {
@@ -13,6 +14,8 @@ class User
     protected string $dob;
     protected int $role;
 
+    private $review;
+
     //CONSTRUCT
     public function __construct(string $Username, string $password, string $firstname, string $lastname, string $email, int $phone_num, int $role)
     {
@@ -23,11 +26,6 @@ class User
         $this->email = $email;
         $this->phone_Num = $phone_num;
         $this->role = $role;
-    }
-
-    public function __construct2()
-    {
-
     }
 
 
@@ -267,9 +265,15 @@ class User
 
     }
 
-    public function writeReview()
-    {
 
+    public function writeReview(string $book_ISBN, string $date, string $comment, int $UserID, int $roleID, array $new_review)
+    {
+        //composition of review
+        $this->review = new Review($book_ISBN, $date, $comment);
+        $this->review->setUserID($UserID);
+        $this->review->setRoleID($roleID);
+
+        $this->review->addReviewToDB($new_review);
     }
 
     public function rateABook()

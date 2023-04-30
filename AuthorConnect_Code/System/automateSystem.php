@@ -1,8 +1,11 @@
 <?php
 
-namespace src;
+namespace System;
 
-class system
+use src\PDO;
+use src\PDOException;
+
+class automateSystem
 {
     public function getUserDetail(string $username, $password)
     {
@@ -49,6 +52,45 @@ class system
 
         } catch (PDOException $error) {
             echo $dbUsername . "<br" . $error->getMessage();
+        }
+    }
+
+    //Delete Author Action from Database
+    public function deleteActionFromDB(int $PostID)
+    {
+        try {
+            require_once '../src/DBconnect.php';
+
+            $PostID = $PostID;
+
+            $sql = 'DELETE FROM author_action WHERE PostID = :PostID';
+            $statement = $connection->prepare($sql);
+            $statement->bindValue(':PostID', $PostID);
+            $statement->execute();
+
+            $success = "post " . $PostID . " successfully deleted";
+            echo $success;
+        } catch (PDOException $error) {
+            echo $sql . "<br>" . $error->getMessage();
+        }
+    }
+
+    public function deleteReviewFromDB(int $ReviewID)
+    {
+        try {
+            require_once '../src/DBconnect.php';
+
+            $ReviewID = $ReviewID;
+
+            $sql = 'DELETE FROM review WHERE ReviewID = :ReviewID';
+            $statement = $connection->prepare($sql);
+            $statement->bindValue(':ReviewID', $ReviewID);
+            $statement->execute();
+
+            $success = "Review " . $ReviewID . " successfully deleted";
+            echo $success;
+        } catch (PDOException $error) {
+            echo $sql . "<br>" . $error->getMessage();
         }
     }
 

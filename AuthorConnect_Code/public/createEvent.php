@@ -5,7 +5,7 @@ include "../Activities/Event.php";
 //Include Header file
 include "templates/header.php";
 if (isset($_POST['submit'])) {
-    require "../common.php";
+    require_once "../common.php";
     try {
         //Connect to the DB
         require_once '../src/DBconnect.php';

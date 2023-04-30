@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
         //Connect to the DB
         require_once '../src/DBconnect.php';
 
-        $sql = "SELECT username, password
+        $sql = "SELECT *
     FROM user
     WHERE username = :username
     AND password = :password ";
@@ -36,13 +36,19 @@ if (isset($_POST['submit'])) {
     //Compare input value with DB value
 //    if(($_POST['username'] == $username) && ($_POST['password'] == $password)){
     if ($result && $statement) {
+        if ($statement->rowCount() > 0) {
+            foreach ($result as $row) {
+                $_SESSION['roleID'] = $row["roleID"];
+                $_SESSION['UserID'] = $row["UserID"];
+            }
+        }
         echo 'success';
 
         $_SESSION['username'] = $loginUsername;
         $_SESSION['Active'] = true;
 
         //Redirect to main page
-        header("location:main.php");
+        header("location:index.php");
 
         exit;// quit from executing code below.
 

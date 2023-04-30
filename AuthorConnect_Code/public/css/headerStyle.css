@@ -1,20 +1,22 @@
-#navBar{
+#navBar {
     background: dimgrey;
     padding: 15px;
 }
-#navBar nav a{
+
+#navBar nav a {
     color: white;
     text-decoration: none;
     margin-left: 20px;
     margin-right: 20px;
 }
+
 label {
     display: block;
     margin: 5px 0;
 }
 
 /*Author Action*/
-.authorActDropbtn{
+.authorActDropbtn, .userDropbtn {
     position: relative;
     background-color: aquamarine;
     color: Black;
@@ -24,32 +26,55 @@ label {
     padding-bottom: 3px;
     border: 1px solid black;
 }
-.author_action{
+
+.user_Action_Area {
     float: right;
+}
+
+.author_action, .userProfile {
+
     position: relative;
     display: inline-block;
 }
+
 .dropdown-content {
     color: black;
     display: none;
-    position: relative;
+    position: absolute;
     background-color: darkgray;
     z-index: 1;
+    right: 0;
+    left: auto;
 }
+
 .dropdown-content a {
     color: black;
     padding: 5px;
     text-decoration: none;
     display: block;
 }
+
 .dropdown-content a:hover {
     background-color: aquamarine;
 }
-.author_action:hover .dropdown-content{
+
+.author_action:hover .dropdown-content {
     display: block;
     color: black;
 }
+
 .author_action:hover .authorActDropbtn {
     background-color: #4F46E5
 }
+
+/*User Area*/
+.userProfile:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content button {
+    text-decoration: none;
+}
+
+
 

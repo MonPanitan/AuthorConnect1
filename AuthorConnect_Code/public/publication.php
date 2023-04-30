@@ -6,7 +6,7 @@ include "../Book_Storage/Genre.php";
 
 //Connect to DB
 if (isset($_POST['submit'])) {
-    require "../common.php";
+    require_once "../common.php";
     try {
         //Connect to the DB
         require_once '../src/DBconnect.php';
@@ -82,11 +82,11 @@ if (isset($_POST['submit'])) {
         //CREATE NEW BOOK THEN ADD TO DB
 
         $new_book = array(
-            "bookName" => $addBook->$book_name,
-            "genreID" => $addBook->genreID, //Need to convert to genre ID
-            "ISBN" => $addBook->$book_isbn,
-            "publishID" => $addBook->publishID,
-            "description" => $addBook->$book_desc,
+            "bookName" => $addBook->getBookName(),
+            "genreID" => $genreID, //Need to convert to genre ID
+            "ISBN" => $addBook->getBookIsbn(),
+            "publishID" => $publishID,
+            "description" => $addBook->getBookDesc(),
 //            "image" => escape("NULL"),
         );
 
@@ -99,6 +99,7 @@ if (isset($_POST['submit'])) {
     }
 
 }
+//Select GenreID
 
 //include header page
 include_once "templates/header.php";

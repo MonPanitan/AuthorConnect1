@@ -1,29 +1,33 @@
 <?php
+include "templates/header.php"; ?>
+
+This is search for book page
+<br>
+<?php
+//Connect TO DB
 try {
     require_once "../common.php";
     require_once '../src/DBconnect.php';
 
     $sql = "SELECT *
-        FROM book";
+        FROM book
+        WHERE bookName = :bookName";
 
+    $bookName = $_POST['bookName'];
 
     $statement = $connection->prepare($sql);
-//    $statement->bindParam(':roleID',$location, PDO::PARAM_STR);
+    $statement->bindParam(':bookName', $bookName, PDO::PARAM_STR);
     $statement->execute();
-    $books = $statement->fetchAll();
+    $result = $statement->fetchAll();
 } catch (PDOException $error) {
     echo $sql . "<br>" . $error->getMessage();
 }
-include "templates/header.php"; ?>
-<link rel="stylesheet" href="css/bookStyle.css"/>
-<!-- This page will contain a specific book that related to author-->
 
-<?php
 //If successful Display a book
-if ($books && $statement->rowCount() > 0) { ?>
+if ($result && $statement->rowCount() > 0) { ?>
 
     <div class="grid_container">
-        <?php foreach ($books as $row) { ?>
+        <?php foreach ($result as $row) { ?>
             <a href="read-single-book.php?ISBN=<?php echo escape($row['ISBN']) ?>"</a>
             <div class=" card">
                 <div class="book_detail">
@@ -35,7 +39,9 @@ if ($books && $statement->rowCount() > 0) { ?>
             </a>
         <?php } ?>
     </div>
-<?php } ?>
+<?php } else {
 
+    echo "<br><br><br>" . "Does not found a book : " . $bookName . " In Database";
+} ?>
 
 <?php include "templates/footer.php"; ?>

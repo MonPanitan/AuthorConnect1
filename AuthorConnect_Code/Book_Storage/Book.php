@@ -16,6 +16,102 @@ class Book
     private float $rating;
     private array $reviews;
 
+    /**
+     * @return string
+     */
+    public function getBookIsbn(): string
+    {
+        return $this->book_isbn;
+    }
+
+    /**
+     * @param string $book_isbn
+     */
+    public function setBookIsbn(string $book_isbn): void
+    {
+        $this->book_isbn = $book_isbn;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBookName(): string
+    {
+        return $this->book_name;
+    }
+
+    /**
+     * @param string $book_name
+     */
+    public function setBookName(string $book_name): void
+    {
+        $this->book_name = $book_name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBookDesc(): string
+    {
+        return $this->book_desc;
+    }
+
+    /**
+     * @param string $book_desc
+     */
+    public function setBookDesc(string $book_desc): void
+    {
+        $this->book_desc = $book_desc;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBookGenre(): string
+    {
+        return $this->book_genre;
+    }
+
+    /**
+     * @param string $book_genre
+     */
+    public function setBookGenre(string $book_genre): void
+    {
+        $this->book_genre = $book_genre;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImage(): string
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param string $image
+     */
+    public function setImage(string $image): void
+    {
+        $this->image = $image;
+    }
+
+    /**
+     * @return float
+     */
+    public function getRating(): float
+    {
+        return $this->rating;
+    }
+
+    /**
+     * @param float $rating
+     */
+    public function setRating(float $rating): void
+    {
+        $this->rating = $rating;
+    }
+
     //CONSTRUCT
     public function __construct(string $book_isbn, string $book_name, string $book_desc)
     {
